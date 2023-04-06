@@ -1,0 +1,1 @@
+export { YoutubeSubs } from './main';

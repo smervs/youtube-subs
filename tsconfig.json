@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "include": [
+    "src"
+  ],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+  }
+}
