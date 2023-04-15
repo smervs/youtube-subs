@@ -13,7 +13,7 @@ $ npm install --save youtube-subs
 ## Usage
 
 ```javascript
-import { YoutubeSubs } from 'youtube-subs';
+import { YoutubeSubs, YoutubeChapters } from 'youtube-subs';
 
 // Fetch all captions
 const captions = await YoutubeSubs.getSubs(videoId, options);
@@ -23,6 +23,9 @@ const chapters = await YoutubeSubs.getSubsByChapter(videoId, options);
 
 // Fetch captions by time in seconds
 const captions = await YoutubeSubs.getSubsByTime(videoId, from, to, options);
+
+// Fetch all chapters without captions
+const chapters = await YoutubeChapters.getChapters(videoId);
 ```
 
 ## Types

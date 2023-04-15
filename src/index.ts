@@ -1,1 +1,1 @@
-export { YoutubeSubs } from './main';
+export { YoutubeSubs, YoutubeChapters } from './main';

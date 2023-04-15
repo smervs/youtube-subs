@@ -135,3 +135,22 @@ export class YoutubeSubs {
 
   }
 }
+
+export class YoutubeChapters {
+  /**
+   * Get all chapters and its captions from a YouTube video.
+   * @param videoId string
+   * @param options Options
+   * @returns ChapterTranscriptions[]
+   */
+  static async getChapters(videoId: string): Promise<Chapter[]> {
+    const { data } = await axios.get(`https://youtube.com/watch?v=${videoId}`);
+
+    if (!data.includes('captionTracks'))
+      throw new Error(`Could not find captions.`);
+
+    const chapterScraper = new ChapterScraper(data);
+    const chapters: Chapter[] = chapterScraper.getChapters();
+    return chapters;
+  }
+}

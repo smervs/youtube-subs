@@ -1,5 +1,34 @@
-import { YoutubeSubs } from "../src";
+import { YoutubeSubs, YoutubeChapters } from "../src";
 import { ChapterTranscriptions } from "../src/main";
+import { Chapter } from "../src/chapter";
+
+describe('Get Chapters', () => {
+
+  test('should not have chapters', async () => {
+    const chapters = await YoutubeChapters.getChapters('mp21Py2m3Wo');
+    expect(chapters.length).toEqual(0);
+  });
+
+  describe('should have a chapter', () => {
+    let chapters: Chapter[] = [];
+
+    beforeAll(async () => {
+      chapters = await YoutubeChapters.getChapters('kVGPZ4rFFBg')
+    });
+
+    test('should have a correct title', async () => {
+      const first = chapters[0];
+      expect(first.title).toEqual('Introduction');
+    });
+
+    test('should have a correct timestamp', async () => {
+      const first = chapters[0];
+      expect(first.start).toEqual(0);
+      expect(first.end).toEqual(100.999);
+    });
+
+  });
+});
 
 describe('Get Captions by Chapters', () => {
 
